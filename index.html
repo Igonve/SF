@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario lección 3</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+   
+    <main>
+        <h3> FORMULARIO LECCIÓN 3 </h3>
+        <div>
+        <table>
+        <thead>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody id="displayArea"></tbody>
+      </table>
+    </div>
+    <div class="formdata">
+      <form action="" method="post" id="myForm">
+        <div> Nombre:</div> <br>
+        <input type="text" name="nombre"><br/><br/>
+        <div> Edad: </div> <br>
+        <input type="text" name="edad"><br/><br/>
+        <input type="submit" name="sub" value="submit">
+      </form>
+    </div>
+    </main>
+  
+
+<script type="text/javascript">
+  $('#myForm').submit(function(event) {
+    event.preventDefault();
+    var $inputs = $('#myForm :input');
+    var values = {};
+    $inputs.each(function() {
+      values[this.name] = $(this).val();
+    });
+    $('#displayArea').append("<tr><td>" + values.nombre + "</td><td>" + values.edad + "</td><td>" + "</td></tr>");
+    $("input[type=text], textarea").val("");
+  });
+</script>
+</body>
+</html>
+
+
+
+
